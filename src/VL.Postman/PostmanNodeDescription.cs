@@ -51,11 +51,11 @@ namespace VL.Postman
 
                 // Add the trigger pin
                 inputs.Add(new PinDescription("Execute", typeof(bool), false, "Sends a query as long as enabled"));
-                
-                // Add a fake input for now
-                outputs.Add(new PinDescription("Result", typeof(RestResponse), null, "The result"));
 
-                if(Item.Request.Value.RequestClass.Description.HasValue)
+                // Add a fake output for now
+                outputs.Add(new PinDescription("Result", typeof(IObservable<IRestResponse>), null, "The result"));
+
+                if (Item.Request.Value.RequestClass.Description.HasValue)
                 {
                     FSummary = Item.Request.Value.RequestClass.Description.Value.String;
                 }

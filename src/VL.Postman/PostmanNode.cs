@@ -50,7 +50,7 @@ namespace VL.Postman
             var client = new RestClient(fullURL);
             var request = new RestRequest();
 
-            resultPin.Value = client.Execute(request);
+            resultPin.Value = client.ExecuteAsync(request).ToObservable();
         }
 
         public void Dispose()
